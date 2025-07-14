@@ -1,0 +1,66 @@
+  body {
+      font-family: 'Georgia', serif;
+      background-color: #f9f7f3;
+      color: #2c2c2c;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    h1, legend {
+      font-family: 'Times New Roman', Times, serif;
+      color: #2a2a2a;
+      font-weight: normal;
+    }
+
+    a {
+      color: #004466;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Layout & Box Styling */
+    .container {
+      max-width: 850px;
+      margin: 40px auto;
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.08);
+    }
+
+    fieldset {
+      border: 1px solid #d6d1c4;
+      border-radius: 8px;
+      padding: 20px 25px;
+      margin: 25px 0;
+      background-color: #fbfaf7;
+    }
+
+    legend {
+      font-size: 1.2rem;
+      font-weight: bold;
+      background-color: #f2efe9;
+      padding: 0 10px;
+      border-radius: 5px;
+    }
+
+    p {
+      margin: 12px 0;
+    }
+
+    hr {
+      height: 1px;
+      background-color: #ccc;
+      border: none;
+      margin: 30px 0;
+    }
+
+    @media screen and (max-width: 768px) {
+      .container {
+        padding: 20px;
+      }
+    }
