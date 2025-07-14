@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Survey form</title>
+    <style>
+      body{
+        background-color:rgb(77, 160, 141);
+        text-align:left;
+        margin:5px;
+        font-family:'Times New Roman', Times, serif;
+      }
+      form{
+         background-color: white;
+      max-width: 500px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 10px;
+     box-shadow:30px black;
+      }
+    h1,p{
+      font-size:larger;
+      font-style: italic;
+      font-weight: 200;
+      line-height: 1.5em;
+      text-align: center;
+    }
+    label{
+      border:5px;
+      border: radius 10px;
+      border-color: black; 
+      display: block;
+      block-size: 30%;
+    }
+    input, textarea{
+      width:100%;
+      padding: 30px;
+      border:3px solid cadetblue;
+      border-radius:10px;
+      box-sizing: border-box;
+      font-size: small;
+    
+      
+    }
+    button{
+       margin-top: 20px;
+      padding: 12px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover{
+      background-color: cornflowerblue;
+    }
+    </style>
+  
+  </head>
+  <body>
+   <h1 id="title">Geo-Tech Survey Form</h1>
+   <p id="description">Users comment on the websites performance to help us improve in the future</p>
+   <form> 
+    <label id="name-label" for="name">Name</label>
+    <input
+     id="name"
+     type="name"
+     placeholder="Enter Your Name" required>
+
+     <label id="email-label" for="email">Email</label>
+     <input
+     id="email"
+     type="email"
+     placeholder="Enter Your Email" required>
+
+     <label id="tel" for="tel">Phone</label>
+     <input 
+     id="number"
+     type="number"
+     placeholder="Enter your Number" required>
+     <fieldset>
+      <legend> How was your experience?</legend>
+      <label for="v.good">very good</label>
+      <input id="very good option" type="checkbox" name="experience"/>
+
+      <label for="good">Good</label>
+      <input id="good" type="checkbox" name="experience"/>
+
+      <label for="bad">Bad</label>
+      <input id="bad" type="checkbox" name="experience"/>
+     </fieldset>
+
+     <fieldset>
+      <legend>How did you hear about us?</legend>
+      <label for="Instagram">Intagram</label>
+    <input id="Instagram" type="checkbox" name="us"/>
+      
+    <label for="tiktok">Tiktok</label>
+    <input id="tiktok" type="checkbox" name="us"/>
+
+    <label for="Twitter">Twitter</label>
+    <input id="twitter" type="checkbox" name="us"/>
+     </fieldset>
+
+     <fieldset>
+      <legend>Would you recommend us?</legend>
+      <label for="yes-option">Yes</label>
+      <input id="yes-option" type="checkbox" name="us"/>
+
+      <label for="no-option">No</label>
+      <input id="No-option" type="checkbox" name="us"/>
+
+      <label for="maybe-option">Maybe</label>
+      <input id="maybe-option" type="checkbox" name="us"/>
+     </fieldset>
+
+     <fieldset>
+      <label for="addtional comment">Additional comment</label>
+      <textarea id=" comment" name="comments" rows="4" placeholder="Type your comment here"></textarea>
+      <button id="submit">submit</button>
+     </fieldset>
+   </form>
+
+  </body>
+</html>
