@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calculator</title>
+  <style>
+    body {
+      background-color: #d3d3d3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .calculator {
+      background-color: #8ee4f3;
+      border-radius: 30px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      padding: 30px 20px;
+      width: 350px;
+      max-width: 90%;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .display {
+      background-color: #f9fafd;
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      text-align: right;
+      font-size: 2rem;
+      font-weight: bold;
+      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    #result {
+      background: transparent;
+      border: none;
+      width: 100%;
+      font-size: 2rem;
+      color: #000;
+      text-align: right;
+      outline: none;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    button {
+      background-color: #b9d1f5;
+      border: none;
+      border-radius: 15px;
+      padding: 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    button.operator {
+      background-color: #333;
+      color: white;
+    }
+
+    button.clear {
+      background-color: #e60009;
+      color: white;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <div class="display">
+      <input type="text" id="result" value="0" readonly />
+    </div>
+    <div class="buttons">
+      <button onclick="appendValue('7')">7</button>
+      <button onclick="appendValue('8')">8</button>
+      <button onclick="appendValue('9')">9</button>
+      <button onclick="appendValue('/')">/</button>
+
+      <button onclick="appendValue('4')">4</button>
+      <button onclick="appendValue('5')">5</button>
+      <button onclick="appendValue('6')">6</button>
+      <button onclick="appendValue('*')">*</button>
+
+      <button onclick="appendValue('1')">1</button>
+      <button onclick="appendValue('2')">2</button>
+      <button onclick="appendValue('3')">3</button>
+      <button onclick="appendValue('-')">-</button>
+
+      <button onclick="appendValue('0')">0</button>
+      <button onclick="appendValue('.')">.</button>
+      <button class="operator" onclick="calculate()">=</button>
+      <button onclick="appendValue('+')">+</button>
+
+      <button class="clear" onclick="clearResult()">C</button>
+    </div>
+  </div>
+
+  <script>
+    function appendValue(value) {
+      const result = document.getElementById("result");
+      if (result.value === "0") {
+        result.value = value;
+      } else {
+        result.value += value;
+      }
+    }
+
+    function calculate() {
+      const result = document.getElementById("result");
+      try {
+        result.value = eval(result.value);
+      } catch {
+        result.value = "Error";
+      }
+    }
+
+    function clearResult() {
+      document.getElementById("result").value = "0";
+    }
+  </script>
+</body>
+</html>
