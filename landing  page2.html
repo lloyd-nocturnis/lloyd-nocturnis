@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Animal Feeds</title>
+  <meta name="description" content="High-quality, nutrient-rich feeds specially formulated to boost growth, improve production, and keep your animals healthy.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+
+:root {
+  --primary-green: #2d5016;
+  --secondary-green: #4a7c2a;
+  --accent-green: #6ba83a;
+  --light-green: #8bc34a;
+  --accent-yellow: #ffc107;
+  --warm-neutral: #f5f3f0;
+  --light-neutral: #fefefe;
+  --dark-neutral: #2c2c2c;
+  --medium-gray: #666666;
+  --light-gray: #e8e8e8;
+  --shadow-color: rgba(45, 80, 22, 0.1);
+  --shadow-strong: rgba(45, 80, 22, 0.2);
+  --dark-bg: #1a1a1a;
+  --dark-surface: #242424;
+  --dark-text: #e0e0e0;
+  --dark-muted: #a0a0a0;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-size-xl: clamp(2.5rem, 5vw, 4rem);
+  --font-size-lg: clamp(1.8rem, 3vw, 2.5rem);
+  --font-size-md: clamp(1.2rem, 2vw, 1.5rem);
+  --font-size-base: 1rem;
+  --font-size-sm: 0.875rem;
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+  --max-width: 1200px;
+  --border-radius: 8px;
+  --border-radius-lg: 16px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-sm: 0 2px 4px var(--shadow-color);
+  --shadow-md: 0 4px 8px var(--shadow-color);
+  --shadow-lg: 0 8px 24px var(--shadow-strong);
+}
+
+[data-theme="dark"] {
+  --warm-neutral: var(--dark-bg);
+  --light-neutral: var(--dark-surface);
+  --dark-neutral: var(--dark-text);
+  --medium-gray: var(--dark-muted);
+  --light-gray: #404040;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  color: var(--dark-neutral);
+  background-color: var(--light-neutral);
+  overflow-x: hidden;
+  transition: var(--transition);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-md);
+}
+
+h1 {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--primary-green);
+}
+
+h2 {
+  font-size: var(--font-size-lg);
+  color: var(--primary-green);
+  margin-bottom: var(--space-lg);
+}
+
+h3 {
+  font-size: var(--font-size-md);
+  color: var(--secondary-green);
+}
+
+p {
+  font-size: var(--font-size-base);
+  margin-bottom: var(--space-sm);
+  color: var(--medium-gray);
+  max-width: 65ch;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+section {
+  padding: var(--space-3xl) 0;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+section:nth-child(even) {
+  background-color: var(--warm-neutral);
+}
+
+header {
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+  color: white;
+  text-align: center;
+  padding: var(--space-3xl) var(--space-md);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.03)"/><circle cx="80" cy="40" r="1" fill="rgba(255,255,255,0.03)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+  opacity: 0.5;
+}
+
+header > * {
+  position: relative;
+  z-index: 2;
+}
+
+header h1 {
+  color: white;
+  margin-bottom: var(--space-lg);
+  animation: slideInDown 1s ease-out;
+}
+
+header p {
+  font-size: var(--font-size-md);
+  margin-bottom: var(--space-xl);
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600px;
+  animation: fadeIn 1s ease-out 0.3s both;
+}
+
+.btn, header a, button[type="submit"] {
+  display: inline-block;
+  padding: var(--space-md) var(--space-xl);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-body);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary, header a {
+  background: linear-gradient(45deg, var(--accent-yellow), #ffdd4a);
+  color: var(--primary-green);
+  box-shadow: var(--shadow-md);
+  animation: slideInUp 1s ease-out 0.6s both;
+}
+
+.btn-primary:hover, header a:hover, button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  background: linear-gradient(45deg, #ffdd4a, var(--accent-yellow));
+}
+
+section ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+
+section li {
+  background: white;
+  padding: var(--space-lg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  position: relative;
+  border-left: 4px solid var(--accent-green);
+}
+
+section li:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+blockquote {
+  background: white;
+  padding: var(--space-xl);
+  margin: var(--space-lg) 0;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  border-left: 6px solid var(--accent-yellow);
+  transition: var(--transition);
+}
+
+blockquote:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+form {
+  background: white;
+  padding: var(--space-xl);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  max-width: 600px;
+  margin: var(--space-lg) auto;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+  color: var(--primary-green);
+}
+
+input, textarea {
+  width: 100%;
+  padding: var(--space-md);
+  border: 2px solid var(--light-gray);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-base);
+  font-family: var(--font-body);
+  transition: var(--transition);
+  margin-bottom: var(--space-md);
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--accent-green);
+  box-shadow: 0 0 0 3px rgba(107, 168, 58, 0.1);
+}
+
+article {
+  background: white;
+  padding: var(--space-lg);
+  margin-bottom: var(--space-md);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid var(--accent-green);
+  transition: var(--transition);
+}
+
+footer {
+  background: var(--primary-green);
+  color: white;
+  text-align: center;
+  padding: var(--space-xl) var(--space-md);
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  :root { --space-3xl: 3rem; --space-2xl: 2rem; }
+  header { min-height: 80vh; padding: var(--space-2xl) var(--space-sm); }
+  section { padding: var(--space-2xl) 0; }
+  .container { padding: 0 var(--space-sm); }
+  section ul { grid-template-columns: 1fr; gap: var(--space-md); }
+  form { margin: var(--space-md) auto; padding: var(--space-lg); }
+}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Premium Animal Feeds for Faster-Growing Livestock</h1>
+    <p>High-quality, nutrient-rich feeds specially formulated to boost growth, improve production, and keep your animals healthy.</p>
+    <a href="#contact">Get a Quote Today</a>
+  </header>
+
+  <section>
+    <h2>Why Choose Our Premium Feeds?</h2>
+    <ul>
+      <li>Formulated with the best ingredients</li>
+      <li>Scientifically balanced for optimal nutrition</li>
+      <li>Supports faster growth and better health</li>
+      <li>Suitable for various types of livestock</li>
+      <li>Environmentally friendly production</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Testimonials</h2>
+    <blockquote>
+      <p>"Since switching to these premium feeds, my livestock have shown remarkable growth and health improvements!"</p>
+      <footer>- John Doe, Farmer</footer>
+    </blockquote>
+    <blockquote>
+      <p>"I love how these feeds are made with natural ingredients. My animals are thriving!"</p>
+      <footer>- Jane Smith, Livestock Owner</footer>
+    </blockquote>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>If you have any questions or would like to place an order, please contact us:</p>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <section>
+    <h2>Order Now</h2>
+    <p>Ready to give your livestock the best? <a href="order.html">Order our premium feeds today!</a></p>
+  </section>
+
+  <section>
+    <h2>Frequently Asked Questions</h2>
+    <article>
+      <p><strong>Q: What types of livestock can benefit from your feeds?</strong></p>
+      <p>A: Our feeds are suitable for a variety of livestock including cattle, pigs, poultry, and more.</p>
+    </article>
+    <article>
+      <p><strong>Q: Are your feeds organic?</strong></p>
+      <p>A: Yes, we use natural ingredients in our premium feeds to ensure the health of your animals and the environment.</p>
+    </article>
+    <article>
+      <p><strong>Q: How do I place an order?</strong></p>
+      <p>A: You can place an order through our <a href="order.html">order page</a> or contact us directly via the form above.</p>
+    </article>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Premium Feeds. All rights reserved.</p>
+    <p>Follow us on <a href="https://www.facebook.com">Facebook</a>, <a href="https://www.twitter.com">Twitter</a>, and <a href="https://www.instagram.com">Instagram</a>.</p>
+  </footer>
+</body>
+</html>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('section');
+    sections.forEach((section, index) => {
+      section.style.animationDelay = `${index * 0.2}s`;
+      section.style.opacity = '1';
+      section.style.transform = 'translateY(0)';
+    });
+  });
